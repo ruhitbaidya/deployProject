@@ -10,11 +10,11 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-
+// mongodb url 
 const uri =
   `mongodb+srv://${process.env.BD_USER}:${process.env.DB_PASS}@ruhit0.zpi8gqt.mongodb.net/?retryWrites=true&w=majority&appName=ruhit0`;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -137,12 +137,12 @@ async function run() {
 }
 run().catch(console.dir);
 
-// mongodb link here
+
 app.get("/", (req, res) => {
   res.send("this post has done");
 });
 
-// this app listen link
+// this app listen link listen port here
 app.listen(port, () => {
   console.log(`This server is start port ${port}`);
 });
